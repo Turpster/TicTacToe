@@ -13,4 +13,4 @@ It uses:
 </br>
 
 ## Credits
-Copyright 2012-2016 Bartosz Radlak.</br> All rights reserved
+Copyright &copy; Bartosz Radlak.</br> All rights reserved
