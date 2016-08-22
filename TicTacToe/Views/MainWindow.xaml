@@ -1,0 +1,24 @@
+﻿<Controls:MetroWindow x:Class="TickTackToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TickTackToe"
+        xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:conv="clr-namespace:TickTackToe.Converters"
+        dialogs:DialogParticipation.Register="{Binding}"
+        mc:Ignorable="d" Width="525" Height="325"
+        Title="Tic-Tac-Toe" ResizeMode="NoResize" Icon="/TicTacToe;component/Images/icon.ico"  >
+    <Window.Resources>
+        <conv:PlacesToDimensionsConverter x:Key="placesToDimensions"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button  x:Name="newgame" Content="New game" FontSize="20" Margin="0,0,0,20"  Command="{Binding StartGame}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Width="375" Height="40"/>
+            <Button x:Name="exit" Content="Exit" FontSize="20"  Command="{Binding ExitApp}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Width="375" Height="40"/>
+        </StackPanel>
+        
+
+    </Grid>
+</Controls:MetroWindow>
