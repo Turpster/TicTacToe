@@ -12,13 +12,17 @@ It uses:
 
 </br>
 
+Screenshots
+-----------
+### Main menu
 [![main_menu](https://github.com/bradlak/TicTacToe/blob/master/Screenshots/main.jpg)]
 
-<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/main.jpg" align="left" width="30%" >
+### Choose game size
+[![main_menu](https://github.com/bradlak/TicTacToe/blob/master/Screenshots/size.jpg)]
 
-<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/size.jpg" align="left" width="30%"   >
+### Game board
+[![main_menu](https://github.com/bradlak/TicTacToe/blob/master/Screenshots/game.jpg)]
 
-<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/game.jpg" align="left" width="30%"   >
 
 
 ## Credits
