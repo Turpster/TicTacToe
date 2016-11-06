@@ -12,5 +12,21 @@ It uses:
 
 </br>
 
+<div align="left" >
+  <div><b>Main menu</b></div>
+  <img src="https://github.com/bradlak/TickTackToe/blob/master/Screenshots/main.png" align="left" width="200"   >
+</div>
+
+<div align="left" >
+  <div><b>Game size</b></div>
+  <img src="https://github.com/bradlak/TickTackToe/blob/master/Screenshots/size.png" align="left" width="200"   >
+</div>
+
+<div align="left" >
+  <div><b>4x4 game</b></div>
+  <img src="https://github.com/bradlak/TickTackToe/blob/master/Screenshots/game.png" align="left" width="200"   >
+</div>
+
+
 ## Credits
 Copyright &copy; Bartosz Radlak.</br> All rights reserved
