@@ -5,6 +5,7 @@ namespace TickTackToe.Model
 {
     public class Place
     {
+        private IconType? type;
 
         public Place()
         {
@@ -12,10 +13,10 @@ namespace TickTackToe.Model
         }
 
         public int Id { get; set; }
-        public ImageSource Image { get; private set; }
-        public bool IsEmpty { get; set; }
 
-        private IconType? type;
+        public ImageSource Image { get; private set; }
+
+        public bool IsEmpty { get; set; }
 
         public IconType? Type
         {

@@ -3,8 +3,6 @@ using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TickTackToe.Model;
 
@@ -12,13 +10,30 @@ namespace TickTackToe.ViewModel
 {
     public class GameViewModel : ViewModelBase
     {
-        int gameSize;
+        private int gameSize;
+        private int windowWidth;
+
+        private int windowHeight;
+        private string title;
+
+        private int player1Score;
+        private int player2Score;
+
+        private bool isPlayer1Turn;
+        private bool isPlayer2Turn;
+
+        private List<Place> places;
+
+        private ICommand setImage;
 
         public GameViewModel(int gameSize)
         {
             this.gameSize = gameSize;
             Places = new List<Place>();
-            for (int i = 0; i < Math.Pow(gameSize, 2); i++) Places.Add(new Place() { Id = i, Type = null });
+            for (int i = 0; i < Math.Pow(gameSize, 2); i++)
+            {
+                Places.Add(new Place() { Id = i, Type = null });
+            }
 
             switch (gameSize)
             {
@@ -41,80 +56,60 @@ namespace TickTackToe.ViewModel
             IsPlayer1Turn = true;
         }
 
-        private double windowWidth;
-        public double WindowWidth
+        public int WindowWidth
         {
             get { return windowWidth; }
             set { windowWidth = value; RaisePropertyChanged(); }
         }
 
-        private double windowHeight;
-        public double WindowHeight
+        public int WindowHeight
         {
             get { return windowHeight; }
             set { windowHeight = value; RaisePropertyChanged(); }
         }
 
-        private string title;
         public string Title
         {
             get { return title; }
             set { title = value; RaisePropertyChanged(); }
         }
 
-        private int player2Score;
         public int Player2Score
         {
             get { return player2Score; }
             set { player2Score = value; RaisePropertyChanged(); }
         }
 
-        private int player1Score;
         public int Player1Score
         {
             get { return player1Score; }
             set { player1Score = value; RaisePropertyChanged(); }
         }
 
-
-
-        private bool isPlayer1Turn;
         public bool IsPlayer1Turn
         {
             get { return isPlayer1Turn; }
             set { isPlayer1Turn = value; RaisePropertyChanged(); }
         }
 
-        private bool isPlayer2Turn;
         public bool IsPlayer2Turn
         {
             get { return isPlayer2Turn; }
             set { isPlayer2Turn = value; RaisePropertyChanged(); }
         }
 
-        private List<Place> places;
-
         public List<Place> Places
         {
-            get
-            {
-                return places;
-            }
-            set
-            {
-                places = value;
-                RaisePropertyChanged();
-            }
+            get { return places; }
+            set { places = value; RaisePropertyChanged(); }
         }
-
-        private ICommand setImage;
 
         public ICommand SetImage
         {
             get
-            {
-                if (setImage == null) setImage = new RelayCommand<Place>(SetImageMethod, (p) => { return p.IsEmpty; });
-                return setImage;
+            {   
+                return setImage ?? 
+                    (setImage = new RelayCommand<Place>(SetImageMethod, p => { return p.IsEmpty; }));
             }
         }
 
@@ -133,7 +128,6 @@ namespace TickTackToe.ViewModel
                 Places.ForEach(z => { z.IsEmpty = true; z.Type = null; });
             }
             
-
             Places = new List<Place>(Places);
             ChangeTurn();
         }
@@ -143,7 +137,6 @@ namespace TickTackToe.ViewModel
             if (IsPlayer1Turn) { IsPlayer1Turn = false; IsPlayer2Turn = true; }
             else if (IsPlayer2Turn) { IsPlayer2Turn = false; IsPlayer1Turn = true; }
         }
-
 
         private int CheckWinner()
         {
@@ -158,6 +151,7 @@ namespace TickTackToe.ViewModel
                     if (Places.FindAll(z => z.Id >= i && z.Id < i + gameSize).Where(z => z.Type == IconType.Cross).Count() == gameSize) winner = 1;
                 }
             }
+
             // columns
             for (int i = 0; i < gameSize; i++)
             {
@@ -166,18 +160,19 @@ namespace TickTackToe.ViewModel
             }
 
             // diagonal
-
             var diagonal = new List<int>();
-            for (int i = 0; i < Math.Pow(gameSize, 2); i += gameSize + 1) diagonal.Add(i);
 
-            var diagonal2 = new List<int>();
-            for (int i = gameSize - 1; i < Math.Pow(gameSize, 2) - 1; i += gameSize - 1) diagonal2.Add(i);
+            for (int i = 0; i < Math.Pow(gameSize, 2); i += gameSize + 1) diagonal.Add(i);
 
             if (Places.FindAll(z => diagonal.Contains(z.Id)).Where(z => z.Type == IconType.Circle).Count() == gameSize) winner = 2;
             if (Places.FindAll(z => diagonal.Contains(z.Id)).Where(z => z.Type == IconType.Cross).Count() == gameSize) winner = 1;
 
-            if (Places.FindAll(z => diagonal2.Contains(z.Id)).Where(z => z.Type == IconType.Circle).Count() == gameSize) winner = 2;
-            if (Places.FindAll(z => diagonal2.Contains(z.Id)).Where(z => z.Type == IconType.Cross).Count() == gameSize) winner = 1;
+            diagonal.Clear();
+
+            for (int i = gameSize - 1; i < Math.Pow(gameSize, 2) - 1; i += gameSize - 1) diagonal.Add(i);
+
+            if (Places.FindAll(z => diagonal.Contains(z.Id)).Where(z => z.Type == IconType.Circle).Count() == gameSize) winner = 2;
+            if (Places.FindAll(z => diagonal.Contains(z.Id)).Where(z => z.Type == IconType.Cross).Count() == gameSize) winner = 1;
 
             return winner;
         }
