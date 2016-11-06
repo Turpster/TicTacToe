@@ -12,6 +12,8 @@ It uses:
 
 </br>
 
+[![main_menu](https://github.com/bradlak/TicTacToe/blob/master/Screenshots/main.jpg)]
+
 <img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/main.jpg" align="left" width="30%" >
 
 <img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/size.jpg" align="left" width="30%"   >
