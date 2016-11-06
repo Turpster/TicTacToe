@@ -12,14 +12,15 @@ It uses:
 
 </br>
 
-<div><b>Main menu</b></div>
-<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/main.jpg" align="left" width="200"   >
+<div><b>Main menu</b>
+<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/main.jpg" align="left" width="30%" ></div>
+
 
 <div><b>Game size</b></div>
-<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/size.jpg" align="left" width="200"   >
+<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/size.jpg" align="left" width="30%"   >
 
 <div><b>4x4 game</b></div>
-<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/game.jpg" align="left" width="200"   >
+<img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/game.jpg" align="left" width="30%"   >
 
 
 ## Credits
