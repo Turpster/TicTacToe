@@ -18,7 +18,7 @@ It uses:
 
 <img src="https://github.com/bradlak/TicTacToe/blob/master/Screenshots/game.jpg" align="left" width="30%"   >
 
-<div>
+
 ## Credits
 Copyright &copy; Bartosz Radlak.</br> All rights reserved
-</div>
+
